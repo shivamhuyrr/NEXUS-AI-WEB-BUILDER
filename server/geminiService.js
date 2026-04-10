@@ -43,7 +43,7 @@ Return the HTML and CSS separately, enclosed in code blocks (\`\`\`html ... \`\`
 
         // Under the new GenAI SDK, systemInstructions go in the config object
         const responseStream = await ai.models.generateContentStream({
-            model: 'gemini-2.5-flash',
+            model: 'gemini-1.5-flash',
             contents: prompt,
             config: {
                 systemInstruction: "You are an expert web developer specializing in creating modern, responsive websites. Always generate complete, functional HTML and CSS code blocks based on the given description. Respond with HTML code first, followed by CSS code. Use ```html and ```css code blocks to enclose the respective code."
@@ -84,7 +84,7 @@ Return the complete updated HTML and CSS separately, enclosed in code blocks (\`
 
         // Stream the modifications
         const responseStream = await ai.models.generateContentStream({
-            model: 'gemini-2.5-flash',
+            model: 'gemini-1.5-flash',
             contents: prompt,
             config: {
                 systemInstruction: "You are an expert web developer making modifications to existing websites. Maintain the overall design consistency while implementing the requested changes. Modify the given HTML and CSS code based on the provided modification description. Respond with the updated HTML code first, followed by the updated CSS code. Use ```html and ```css code blocks to enclose the respective code."

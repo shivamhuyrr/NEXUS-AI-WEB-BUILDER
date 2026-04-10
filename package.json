@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A premium AI-powered real-time website builder.",
   "author": "NEXUS AI Team",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.20.0",
     "@anthropic-ai/sdk": "^0.52.0",
