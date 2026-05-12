@@ -1,6 +1,8 @@
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || '';
+// Hardcoded backend URL to ensure correct Render deployment is used.
+// To override, set REACT_APP_BACKEND_URL in your Vercel/local .env file.
+const BACKEND_URL = 'https://nexus-ai-backend-jzit.onrender.com';
 console.log('--- CONNECTIVITY DIAGNOSTIC ---');
-console.log('ACTIVE BACKEND URL:', BACKEND_URL || 'RELATIVE PROXY (Port 3001 via package.json)');
+console.log('ACTIVE BACKEND URL:', BACKEND_URL);
 console.log('------------------------------');
 
 export async function generateWebsite(description, onUpdate) {
