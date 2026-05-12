@@ -5,132 +5,157 @@
   
   <h3>🚀 Premium AI-Powered Real-Time Website Builder</h3>
 
+  [![Live Demo](https://img.shields.io/badge/Live_Demo-nexus--ai-blue?logo=vercel)](https://nexus-ai-web-builder.vercel.app/)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  [![Vercel Deployment](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://vercel.com)
   [![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react)](https://reactjs.org/)
   [![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind_CSS-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
   [![Gemini AI](https://img.shields.io/badge/AI-Google_Gemini-4285F4?logo=google)](https://deepmind.google/technologies/gemini/)
 
   **Build stunning, fully functional websites in seconds using the power of generative AI.**
+
+  🌐 **[Live App](https://nexus-ai-web-builder.vercel.app/)** · 📖 **[Docs](docs/)** · 🐛 **[Report Bug](https://github.com/shivamhuyrr/NEXUS-AI-WEB-BUILDER/issues)**
 </div>
 
 ---
+
 ## ✨ Overview
 
-**NEXUS AI WEBSITE BUILDER** is a state-of-the-art platform that transforms natural language descriptions into premium, production-ready websites. Leveraging advanced models like **Google Gemini 1.5 Pro**, it provides a seamless, iterative building experience with live previews and instant code modifications.
+**NEXUS AI WEBSITE BUILDER** is a state-of-the-art platform that transforms natural language descriptions into premium, production-ready websites. Leveraging advanced models like **Google Gemini Flash**, it provides a seamless, iterative building experience with live previews and instant code modifications.
 
-## 🚀 How It Works (The Workflow)
+## 🌟 Key Features
 
-The core engine utilizes an iterative, conversational approach to website building:
+- 🛠️ **Instant AI Generation** — Create full-page layouts from a single prompt
+- 🎨 **Glassmorphism UI** — Sleek, modern aesthetic designed for a premium user experience
+- ⚡ **Real-Time Streaming** — Watch your site render live via Server-Sent Events (SSE)
+- 📱 **Mobile-Optimized** — Every generated site is fully responsive by default
+- 🔒 **Safe Sandboxing** — Code runs in an isolated iframe environment
+- 🌍 **Multi-Language** — i18n support for English, Spanish, and Hindi
+- 🔄 **Model Fallback Chain** — Automatic retries across multiple Gemini Flash models
+- 📤 **CodeSandbox Export** — One-click export to CodeSandbox for further editing
 
-1. **Natural Language Input**: Describe your vision (e.g., "A dark-themed fitness landing page").
-2. **AI Engine Processing**: The backend routes your request to **Google Gemini**, which architecturally splits the task into HTML structure, CSS styling, and logic.
-3. **Real-Time Code Streaming**: Code is streamed to the UI chunk-by-chunk using **Server-Sent Events (SSE)**, providing immediate feedback.
-4. **Instant Sandboxed Rendering**: The generated code is safely executed inside an isolated **iframe environment**, ensuring security and real-time visual updates.
-5. **Conversational Refinement**: Simply ask the AI to "make the buttons larger" or "change the primary color to gold" to iteratively polish the site.
+## 🚀 How It Works
 
-## 🏗️ Architecture Detail
+```
+📝 Describe your site → 🤖 AI generates HTML/CSS → ⚡ Live streaming preview → ✏️ Iterate with modifications
+```
 
-- **Frontend**: React-based SPA with a focus on real-time stream parsing and iframe injection.
-- **Backend**: Node.js/Express serverless functions designed for streaming AI responses.
-- **Security**: Sandbox execution of generated scripts and automatic `.env` protection.
+1. **Describe** — Enter a natural language description of your website
+2. **Generate** — The AI engine streams HTML & CSS in real-time via SSE
+3. **Preview** — Watch your website render live in a secure sandboxed iframe
+4. **Modify** — Refine with follow-up instructions ("make the buttons larger", "change color to gold")
 
 ## 📁 Project Structure
 
 ```text
 NEXUS-AI-Web-Builder/
-├── api/                # Vercel serverless entry points
-├── public/             # Static assets (favicons, logos)
-├── server/             # Express backend logic & AI service integrations
-├── src/                # React components & UI logic
-│   ├── components/     # Reusable UI parts (Renderer, Terminal, etc.)
-│   ├── services/       # AI communication layer
-│   └── styles/         # Tailwind CSS & Global styles
-├── docs/               # Advanced technical documentation
-├── vercel.json         # Deployment & Routing configuration
-└── package.json        # Project dependencies & scripts
+├── public/             # Static assets (favicons, logos, index.html)
+├── server/             # Express backend & AI service integrations
+│   ├── server.js       # API routes & SSE streaming handler
+│   ├── geminiService.js# Google Gemini API integration & model fallback
+│   ├── claudeService.js# Anthropic Claude integration
+│   └── openaiService.js# OpenAI integration
+├── src/                # React frontend
+│   ├── App.js          # Main app with landing page & routing
+│   ├── components/     # UI components
+│   │   ├── LiveRenderer.js       # Main builder interface
+│   │   ├── StreamingLivePreview.js# Sandboxed iframe renderer
+│   │   ├── AIStepVisualizer.js   # AI thinking step visualizer
+│   │   └── AIThinkingProcess.js  # Generation progress indicator
+│   ├── services/       # Backend communication layer
+│   │   └── aiService.js          # API client with SSE stream handling
+│   └── styles/         # Component-specific CSS
+├── docs/               # Technical documentation
+│   ├── architecture.md # System design & model fallback chain
+│   ├── about.md        # Project background & research references
+│   └── CLAUDE.md       # Development manual & skill categories
+├── vercel.json         # Vercel deployment config (frontend)
+├── render.yaml         # Render deployment config (backend)
+├── tailwind.config.js  # Tailwind CSS configuration
+└── package.json        # Dependencies & scripts
 ```
 
-## 🌟 Key Features
+## ⚙️ Tech Stack
 
-- 🛠️ **Instant AI Generation**: Create full-page layouts from a single prompt.
-- 🎨 **Glassmorphism UI**: A sleek, modern aesthetic designed for a premium user experience.
-- ⚡ **Real-Time Synchronization**: Watch your changes render live as the AI streams code.
-- 📱 **Mobile-Optimized**: Every generated site is fully responsive by default.
-- 🔒 **Safe Sandboxing**: Test and refine code in an isolated, secure iframe environment.
-- 🌍 **Multi-Model Support**: Integrated with Google Gemini, OpenAI, and Anthropic Claude.
+| Layer | Technology |
+|:------|:-----------|
+| **Frontend** | [React.js](https://reactjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/) |
+| **Backend** | [Node.js](https://nodejs.org/), [Express.js](https://expressjs.com/) |
+| **AI Engine** | [Google Gemini Flash](https://ai.google.dev/) (primary), [Anthropic Claude](https://www.anthropic.com/), [OpenAI](https://openai.com/) |
+| **Icons** | [Lucide React](https://lucide.dev/) |
+| **i18n** | [i18next](https://www.i18next.com/) |
+| **Deployment** | [Vercel](https://vercel.com/) (frontend), [Render](https://render.com/) (backend) |
 
-- **Frontend**: [React.js](https://reactjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/)
-- **Backend**: [Node.js](https://nodejs.org/), [Express.js](https://expressjs.com/)
-- **AI Engine**: [Google Gemini API](https://ai.google.dev/), [Anthropic SDK](https://www.anthropic.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **I18n**: [i18next](https://www.i18next.com/)
+## 🛠️ Quick Start
 
-## 🛠️ Feature Matrix & AI Skills
+### Prerequisites
 
-NEXUS AI utilizes a specialized suite of over 15+ deterministic and probabilistic skills to ensure high-quality site generation:
+- **Node.js** v18+ and **npm** v9+
+- A [Google Gemini API key](https://makersuite.google.com/app/apikey)
 
-| Category | Skill | Description | Logic Path |
-| :--- | :--- | :--- | :--- |
-| **Parsing** | `reg-extract-3.0` | Real-time HTML/CSS extraction from AI streams. | `server/geminiService.js` |
-| **Rendering** | `iframe-iso-std` | Safe sandbox execution via isolated iframes. | `src/components/LiveRenderer.js` |
-| **Logic** | `delta-mod-diff` | Fragment-based updates for sectional modifications. | `api/modify-website` |
-| **Vision** | `arch-layout-v1` | Semantic layout planning based on prompt intent. | `AIStepVisualizer.js` |
-| **Style** | `tailwind-opt-4` | Optimized utility class generation for responsiveness. | `tailwind.config.js` |
-| **Export** | `csb-bridge-x` | Remote project instantiation in CodeSandbox. | `src/components/LiveRenderer.js` |
-
----
-
-## ⚙️ Quick Start
-
-### 1. Prerequisites
-
-- Node.js (v18+)
-- Local environment setup (details in [SETUP_GUIDE.md](SETUP_GUIDE.md))
-
-### 2. Installation
+### Installation
 
 ```bash
-git clone https://github.com/shivamhuyrr/NEXUS-AI-Web-Builder.git
-cd NEXUS-AI-Web-Builder
+# Clone the repository
+git clone https://github.com/shivamhuyrr/NEXUS-AI-WEB-BUILDER.git
+cd NEXUS-AI-WEB-BUILDER
+
+# Install frontend dependencies
 npm install
+
+# Install backend dependencies
+cd server && npm install && cd ..
 ```
 
-### 3. Environment Setup
+### Environment Setup
 
-Create a `.env` in the `server` directory and add your keys:
+Create a `.env` file inside the `server/` directory:
 
 ```env
-GEMINI_API_KEY=your_key_here
-OPENAI_API_KEY=your_key_here
+GEMINI_API_KEY=your_gemini_api_key
+OPENAI_API_KEY=your_openai_api_key        # optional
+ANTHROPIC_API_KEY=your_anthropic_api_key  # optional
 ```
 
-### 4. Run Locally
+### Run Locally
 
 ```bash
-# Start Backend
+# Terminal 1 — Start the backend (port 3001)
 node server/server.js
 
-# Start Frontend (Project Root)
+# Terminal 2 — Start the frontend (port 3000)
 npm start
 ```
 
----
+Open **http://localhost:3000** in your browser.
+
+## 🌐 Deployment
+
+| Service | Platform | Config File |
+|:--------|:---------|:------------|
+| Frontend | Vercel | `vercel.json` |
+| Backend | Render | `render.yaml` |
+
+**Live URLs:**
+- Frontend: https://nexus-ai-web-builder.vercel.app/
+- Backend API: https://nexus-ai-backend-jzit.onrender.com
+
+> **Note:** The Render free tier spins down after 15 minutes of inactivity. The first request may take 30–60s while the server wakes up.
 
 ## 🗺️ Roadmap
 
-- [ ] **Custom Templates**: Pre-defined starting points for various industries.
-- [ ] **Export to ZIP**: One-click download of the generated source code.
-- [ ] **Database Integration**: Built-in support for Postgres/Supabase.
-- [ ] **Voice Commands**: Build your website using just your voice.
+- [ ] Custom Templates — Pre-defined starting points for various industries
+- [ ] Export to ZIP — One-click download of generated source code
+- [ ] Database Integration — Built-in support for Postgres/Supabase
+- [ ] Voice Commands — Build websites using voice input
+- [ ] Multi-page Sites — Generate complete multi-page applications
 
 ## 🤝 Contributing
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ---
 
