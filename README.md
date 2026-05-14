@@ -44,35 +44,6 @@
 3. **Preview** — Watch your website render live in a secure sandboxed iframe
 4. **Modify** — Refine with follow-up instructions ("make the buttons larger", "change color to gold")
 
-## 📁 Project Structure
-
-```text
-NEXUS-AI-Web-Builder/
-├── public/             # Static assets (favicons, logos, index.html)
-├── server/             # Express backend & AI service integrations
-│   ├── server.js       # API routes & SSE streaming handler
-│   ├── geminiService.js# Google Gemini API integration & model fallback
-│   ├── claudeService.js# Anthropic Claude integration
-│   └── openaiService.js# OpenAI integration
-├── src/                # React frontend
-│   ├── App.js          # Main app with landing page & routing
-│   ├── components/     # UI components
-│   │   ├── LiveRenderer.js       # Main builder interface
-│   │   ├── StreamingLivePreview.js# Sandboxed iframe renderer
-│   │   ├── AIStepVisualizer.js   # AI thinking step visualizer
-│   │   └── AIThinkingProcess.js  # Generation progress indicator
-│   ├── services/       # Backend communication layer
-│   │   └── aiService.js          # API client with SSE stream handling
-│   └── styles/         # Component-specific CSS
-├── docs/               # Technical documentation
-│   ├── architecture.md # System design & model fallback chain
-│   ├── about.md        # Project background & research references
-│   └── CLAUDE.md       # Development manual & skill categories
-├── vercel.json         # Vercel deployment config (frontend)
-├── render.yaml         # Render deployment config (backend)
-├── tailwind.config.js  # Tailwind CSS configuration
-└── package.json        # Dependencies & scripts
-```
 
 ## ⚙️ Tech Stack
 
@@ -87,10 +58,6 @@ NEXUS-AI-Web-Builder/
 
 ## 🛠️ Quick Start
 
-### Prerequisites
-
-- **Node.js** v18+ and **npm** v9+
-- A [Google Gemini API key](https://makersuite.google.com/app/apikey)
 
 ### Installation
 
@@ -128,12 +95,7 @@ npm start
 
 Open **http://localhost:3000** in your browser.
 
-## 🌐 Deployment
 
-| Service | Platform | Config File |
-|:--------|:---------|:------------|
-| Frontend | Vercel | `vercel.json` |
-| Backend | Render | `render.yaml` |
 
 **Live URLs:**
 - Frontend: https://nexus-ai-web-builder.vercel.app/
@@ -141,13 +103,7 @@ Open **http://localhost:3000** in your browser.
 
 > **Note:** The Render free tier spins down after 15 minutes of inactivity. The first request may take 30–60s while the server wakes up.
 
-## 🗺️ Roadmap
 
-- [ ] Custom Templates — Pre-defined starting points for various industries
-- [ ] Export to ZIP — One-click download of generated source code
-- [ ] Database Integration — Built-in support for Postgres/Supabase
-- [ ] Voice Commands — Build websites using voice input
-- [ ] Multi-page Sites — Generate complete multi-page applications
 
 ## 🤝 Contributing
 
